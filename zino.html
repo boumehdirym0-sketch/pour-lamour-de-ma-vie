@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentin ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff4b5c,#ff1e56);
+    transition:0.5s;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+    width:360px;
+}
+
+h1{
+    color:#ff1e56;
+    margin-bottom:30px;
+}
+
+button{
+    padding:12px 25px;
+    margin:10px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#yes{
+    background:#ff1e56;
+    color:white;
+}
+
+#yes:hover{
+    transform:scale(1.1);
+}
+
+#no{
+    background:#eee;
+    color:#ff1e56;
+}
+
+.message{
+    margin-top:20px;
+    font-size:18px;
+    font-weight:600;
+    display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1 id="question">❤️ Tu veux être mon valentin bebou ? ❤️</h1>
+    <button id="yes">Oui 😍</button>
+    <button id="no">Non 😢</button>
+    <div class="message" id="message"></div>
+</div>
+
+<script>
+const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
+const message = document.getElementById("message");
+const body = document.body;
+const question = document.getElementById("question");
+
+/* Fonction retour à l'accueil */
+function resetPage(){
+    message.style.display = "none";
+    message.textContent = "";
+    yesBtn.style.display = "inline-block";
+    noBtn.style.display = "inline-block";
+    body.style.background = "linear-gradient(135deg,#ff4b5c,#ff1e56)";
+}
+
+/* Clique Oui */
+yesBtn.addEventListener("click", function(){
+    message.style.display = "block";
+    message.style.color = "#ff1e56";
+    message.textContent = "Je le savais 😌❤️";
+    yesBtn.style.display = "none";
+    noBtn.style.display = "none";
+
+    setTimeout(resetPage, 3000);
+});
+
+/* Clique Non */
+noBtn.addEventListener("click", function(){
+    message.style.display = "block";
+    message.style.color = "black";
+    message.textContent = "C’est fini entre toi et moi 😤💔";
+
+    yesBtn.style.display = "none";
+    noBtn.style.display = "none";
+    body.style.background = "#333";
+
+    setTimeout(resetPage, 3000);
+});
+</script>
+
+</body>
+</html>
